@@ -1,0 +1,45 @@
+﻿@model Heroes
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>Nuevo Heroe</h2>
+<hr />
+@using(Html.BeginForm("Nuevo","Heroe",FormMethod.Post, new {enctype="multipart/form-data"}))
+{
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        @Html.TextBoxFor(x=>x.Nombre, new {@class="form-control", @required="required"})
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Historia</label>
+        @Html.TextAreaFor(x=>x.Historia, new {@class="form-control"})
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Poder</label>
+        @Html.TextBoxFor(x=>x.Poder, new {@class="form-control", @required="required"})
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Debilidad</label>
+        @Html.TextBoxFor(x=>x.Debilidad, new {@class="form-control", @required="required"})
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Universo</label>
+        <select class="form-control" name="Universo">
+            @*name="Universo" es el nombre de la propiedad en la tabla*@
+            <option value="DC">DC</option>
+            <option value="Marvel">Marvel</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Imagen</label>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupFile01">Upload</label>
+            <input type="file" class="form-control" id="Imagen" name="Imagen" >
+        </div>
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="Agregar" class="btn btn-success"/>
+    </div>
+}
+
