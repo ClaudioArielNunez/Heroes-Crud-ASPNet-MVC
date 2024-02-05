@@ -67,7 +67,9 @@ namespace Heroes.Controllers
             heroeActualizar.Debilidad = heroe.Debilidad;
             heroeActualizar.Universo = heroe.Universo;
 
-            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            // Verificar si hay archivos adjuntos en la solicitud o si son nulos
+            if (System.Web.HttpContext.Current.Request.Files["Imagen"] != null
+                  && System.Web.HttpContext.Current.Request.Files["Imagen"].ContentLength > 0)
             {
                 var imagen = System.Web.HttpContext.Current.Request.Files["Imagen"];
                 string ruta = Server.MapPath("~/Content/Images/");
