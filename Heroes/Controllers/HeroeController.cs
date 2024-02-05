@@ -50,6 +50,39 @@ namespace Heroes.Controllers
         }
 
         [HttpGet]
+        public ActionResult Actualizar(int id)
+        {
+            var heroe = BD.Heroes.FirstOrDefault(x => x.IdHeroe == id);
+
+            return View(heroe);
+        }
+
+        [HttpPost]
+        public ActionResult Actualizar(Models.Heroes heroe)
+        {
+            var heroeActualizar = BD.Heroes.FirstOrDefault(x=>x.IdHeroe==heroe.IdHeroe);
+            heroeActualizar.Poder = heroe.Poder;
+            heroeActualizar.Historia = heroe.Historia;
+            heroeActualizar.Nombre = heroe.Nombre;
+            heroeActualizar.Debilidad = heroe.Debilidad;
+            heroeActualizar.Universo = heroe.Universo;
+
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+                var imagen = System.Web.HttpContext.Current.Request.Files["Imagen"];
+                string ruta = Server.MapPath("~/Content/Images/");
+                string filename = imagen.FileName;
+                imagen.SaveAs(ruta + filename);
+
+                heroeActualizar.Imagen = "~/Content/Images/" + imagen.FileName;                    
+            }
+
+            BD.SaveChanges();
+            return RedirectToAction("Detalle", new {id=heroe.IdHeroe});
+        }
+
+
+        [HttpGet]
         public ActionResult Delete(int id)
         {
             var heroe = BD.Heroes.FirstOrDefault(x=>x.IdHeroe==id);

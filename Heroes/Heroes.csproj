@@ -97,9 +97,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\Batman.gif" />
+    <Content Include="Content\Images\dc.png" />
     <Content Include="Content\Images\hulk.jpg" />
     <Content Include="Content\Images\ironMan.gif" />
+    <Content Include="Content\Images\Marvel.png" />
     <Content Include="Content\Images\Wolverine.gif" />
+    <Content Include="Content\RepoImages\heroes1.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\HeroeDB.Context.tt">
@@ -117,7 +120,6 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HeroeController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -153,10 +155,10 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Heroe\Index.cshtml" />
     <Content Include="Views\Heroe\Detalle.cshtml" />
     <Content Include="Views\Heroe\Nuevo.cshtml" />
+    <Content Include="Views\Heroe\Actualizar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -166,7 +168,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\RepoImages\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

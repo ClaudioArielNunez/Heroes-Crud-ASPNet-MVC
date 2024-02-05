@@ -14,14 +14,13 @@
     @foreach (var heroe in Model)
     {
         <div class="card ">
-            <img src="@Url.Content(heroe.Imagen)" class="card-img-top" alt="...">
+            <img src="@Url.Content(heroe.Imagen)" class="card-img-top" height="400px alt="...">
             <div class="card-body">
                 <h5 class="card-title">@heroe.Nombre</h5>
                 <p class="card-text">@heroe.Historia</p>                  
             </div>
             <div class="card-footer d-grid gap-2 ">
-                <a href="@Url.Action("Detalle", "Heroe", new {id=heroe.IdHeroe})" class="btn btn-primary">Ver Detalle</a>
-                <a href="@Url.Action()" class="btn btn-success">Actualizar</a>
+                <a href="@Url.Action("Detalle", "Heroe", new {id=heroe.IdHeroe})" class="btn btn-primary">Ver Detalle</a>                
                 <a href="@Url.Action("Delete","Heroe", new {id=heroe.IdHeroe})" class="btn btn-danger">Eliminar</a>
             </div>
 

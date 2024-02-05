@@ -2,23 +2,50 @@
 @{
     ViewBag.Title = "Detalle";
 }
+<div class="my-3">
+    <h2>Detalle</h2>
+</div>
 
-<h2>Detalle</h2>
-<hr />
-<div class="mb-3">
-    <label class="form-label">Nombre: </label>
-    @Model.Nombre
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="@Url.Content(Model.Imagen)" class="img-fluid" />        
+    </div>
+    <div class="col-md-6">
+        <div class="mb-3">
+            <h1>@Model.Nombre</h1>
+            <hr />
+            <p>@Model.Historia</p>
+        </div>        
+        
+    </div>
 </div>
-<div class="mb-3">
-    <label class="form-label">Poder: </label>
-    @Model.Poder
+<div class="row">
+    <div class="col-md-6">
+        @if (Model.Universo == "DC")
+        {
+            <img src="~/Content/Images/dc.png" width="250px" />            
+        }
+        else
+        {
+            <img src="~/Content/Images/Marvel.png" width="250px" />
+        }
+        
+    </div>
+    <div class="col-md-6">
+        <div class="mb-3">
+            <label class="form-label">Poder: </label>
+            @Model.Poder
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Debilidad: </label>
+            @Model.Debilidad
+        </div>   
+        <div class="mb-3">
+            <a href="@Url.Action("Index","Heroe")" class="btn btn-primary">Regresar</a>
+            <a href="@Url.Action("Actualizar","Heroe", new {id=Model.IdHeroe})" class="btn btn-success">Actualizar</a>
+        </div>
+    </div>
 </div>
-<div class="mb-3">
-    <label class="form-label">Debilidad: </label>
-    @Model.Debilidad
-</div>
-<div class="mb-3">
-    <label class="form-label">Universo: </label>
-    @Model.Universo
-</div>
+
 
