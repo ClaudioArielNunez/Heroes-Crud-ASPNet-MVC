@@ -15,37 +15,32 @@
         <div class="mb-3">
             <h1>@Model.Nombre</h1>
             <hr />
-            <p>@Model.Historia</p>
-        </div>        
-        
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        @if (Model.Universo == "DC")
-        {
-            <img src="~/Content/Images/dc.png" width="250px" />            
-        }
-        else
-        {
-            <img src="~/Content/Images/Marvel.png" width="250px" />
-        }
-        
-    </div>
-    <div class="col-md-6">
-        <div class="mb-3">
+            <p class="fs-4">@Model.Historia</p>
+        </div>
+        <div class="mb-3 fs-4">
             <label class="form-label">Poder: </label>
             @Model.Poder
         </div>
-        <div class="mb-3">
-            <label class="form-label">Debilidad: </label>
+        <div class="mb-3 fs-4">
+            <label class="form-label ">Debilidad: </label>
             @Model.Debilidad
-        </div>   
+        </div>
+        <div class="col-md-6">
+            @if (Model.Universo == "DC")
+            {
+                <img src="~/Content/Images/dc.png" width="250px" />
+            }
+            else
+            {
+                <img src="~/Content/Images/Marvel.png" width="250px" />
+            }
+        </div>
         <div class="mb-3">
             <a href="@Url.Action("Index","Heroe")" class="btn btn-primary">Regresar</a>
             <a href="@Url.Action("Actualizar","Heroe", new {id=Model.IdHeroe})" class="btn btn-success">Actualizar</a>
         </div>
     </div>
 </div>
+
 
 
